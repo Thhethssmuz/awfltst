@@ -1,0 +1,27 @@
+{
+  "name": "awfltst",
+  "author": "Svein Inge Albrigtsen <thhethssmuz@gmail.com>",
+  "version": "0.0.0",
+  "description": "",
+  "main": "lib",
+  "bin": {
+    "awfltst": "bin.js"
+  },
+  "scripts": {
+    "coverage": "nyc --reporter=lcov --reporter=html ./bin.js test/*.js",
+    "lint": "eslint bin.js lib/ test/",
+    "test": "./bin.js test/*.js"
+  },
+  "dependencies": {
+    "diff": "^3.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.11.1",
+    "nyc": "^13.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Thhethssmuz/awfltst.git"
+  },
+  "license": "MIT"
+}
