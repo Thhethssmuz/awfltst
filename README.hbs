@@ -1,0 +1,73 @@
+# awfltst
+
+Async test harness and test runner.
+
+## Usage
+
+Use like if [bandage](https://npmjs.org/package/bandage) supported async functions.
+
+```js
+'use strict';
+const test = require('awfltst');
+
+test('My Test', async function () {
+  this.eq(5, 2 + 3, 'addition works');
+  const result = await Promise.resolve(true);
+  this.ok(result, 'promise resolved correctly');
+});
+
+test('Alternatively', async (t) => {
+  t.eq(6, 2 * 3, 'multiplication works');
+});
+```
+
+Which you can run with the bundled `awfltst` executable:
+
+```sh
+$ awfltst test.js
+
+  1 My Test 1 ms
+
+    ✔ addition works
+    ✔ promise resolved correctly
+
+  2 Alternatively 0 ms
+
+    ✔ multiplication works
+
+
+  All tests passed!
+
+
+  Total:      2 tests   3 assertions
+  Passing:    2 tests   3 assertions
+  Duration:   3 ms
+
+```
+
+## Binary
+
+```
+Usage:
+  awfltst -h | --help
+  awfltst -v | --version
+  awfltst [-t | --test <test-name>]... [-g | --group <group-name>]...
+          [-T | --skip-test <test-name>]... [-G | --skip-group <group-name>]...
+          <file-path>...
+
+Options:
+  -h, --help                    Show usage information and exit.
+  -v, --version                 Show version information and exit.
+  -t, --test <test-name>        Exclusively execute a single named test.
+  -T, --skip[-test] <test-name> Exclude a single named test from execution.
+  -g, --group <group-name>      Exclusively execute a single test group.
+  -G, --skip-group <group-name> Exclude a single test group from execution.
+  --reporter spec|json          Set output format. Defaults to 'spec'.
+  --[no-]colo[u]r               Force enable/disable coloured output.
+
+```
+
+## API
+
+{{#identifier name="test"}}{{>docs}}{{/identifier}}
+{{#identifier name="this"}}{{>docs}}{{/identifier}}
