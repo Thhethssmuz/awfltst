@@ -8,7 +8,8 @@
     "awfltst": "bin.js"
   },
   "scripts": {
-    "coverage": "nyc --reporter=lcov --reporter=html ./bin.js test/*.js",
+    "precoverage": "nyc --reporter=lcov ./bin.js test/*.js",
+    "coverage": "cat coverage/lcov.info",
     "docs": "jsdoc2md -t README.hbs -d 3 -p list --separators -f lib/test.js > README.md",
     "lint": "eslint bin.js lib/ test/",
     "test": "./bin.js test/*.js"
