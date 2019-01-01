@@ -9,6 +9,7 @@
   },
   "scripts": {
     "coverage": "nyc --reporter=lcov --reporter=html ./bin.js test/*.js",
+    "docs": "jsdoc2md -t README.hbs -d 3 -p list --separators -f lib/test.js > README.md",
     "lint": "eslint bin.js lib/ test/",
     "test": "./bin.js test/*.js"
   },
@@ -17,6 +18,7 @@
   },
   "devDependencies": {
     "eslint": "^5.11.1",
+    "jsdoc-to-markdown": "^4.0.1",
     "nyc": "^13.1.0"
   },
   "repository": {
