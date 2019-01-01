@@ -1,6 +1,8 @@
 # awfltst
+[![npm status](http://img.shields.io/npm/v/awfltst.svg)](https://www.npmjs.org/package/awfltst)
 [![build status](https://secure.travis-ci.org/Thhethssmuz/awfltst.svg)](http://travis-ci.org/Thhethssmuz/awfltst)
 [![coverage status](https://coveralls.io/repos/github/Thhethssmuz/awfltst/badge.svg?branch=master)](https://coveralls.io/github/Thhethssmuz/awfltst?branch=master)
+[![dependency status](https://david-dm.org/thhethssmuz/awfltst.svg)](https://david-dm.org/thhethssmuz/awfltst)
 
 Async test harness and test runner.
 
