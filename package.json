@@ -2,7 +2,7 @@
   "name": "awfltst",
   "author": "Svein Inge Albrigtsen <thhethssmuz@gmail.com>",
   "version": "0.1.0",
-  "description": "",
+  "description": "async test library",
   "main": "lib",
   "bin": {
     "awfltst": "bin.js"
