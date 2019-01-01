@@ -6,5 +6,5 @@ test
 .eslintrc
 .gitignore
 .npmignore
-README.hbs
+template.hbs
 .travis.yml
