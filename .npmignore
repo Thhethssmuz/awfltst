@@ -1,0 +1,10 @@
+coverage
+.git
+node_modules
+.nyc_output
+test
+.eslintrc
+.gitignore
+.npmignore
+README.hbs
+.travis.yml
