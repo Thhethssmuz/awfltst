@@ -1,4 +1,6 @@
 # awfltst
+[![build status](https://secure.travis-ci.org/Thhethssmuz/awfltst.svg)](http://travis-ci.org/Thhethssmuz/awfltst)
+[![coverage status](http://img.shields.io/coveralls/Thhethssmuz/awfltst.svg)](https://coveralls.io/r/Thhethssmuz/awfltst)
 
 Async test harness and test runner.
 
