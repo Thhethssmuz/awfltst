@@ -22,6 +22,7 @@ Options:
   -G, --skip-group <group-name> Exclude a single test group from execution.
   --reporter spec|json          Set output format. Defaults to 'spec'.
   --[no-]colo[u]r               Force enable/disable coloured output.
+  --[no-]capture-console        Force enable/disable console capture.
 `;
 
 const options = {};
@@ -89,6 +90,14 @@ while (argv.length) {
     case '--no-color':
     case '--no-colour':
       options.color = false;
+      break;
+
+    case '--capture-console':
+      options.console = true;
+      break;
+
+    case '--no-capture-console':
+      options.console = false;
       break;
 
     case '--':

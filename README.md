@@ -68,6 +68,7 @@ Options:
   -G, --skip-group <group-name> Exclude a single test group from execution.
   --reporter spec|json          Set output format. Defaults to 'spec'.
   --[no-]colo[u]r               Force enable/disable coloured output.
+  --[no-]capture-console        Force enable/disable console capture.
 
 ```
 
