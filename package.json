@@ -15,7 +15,7 @@
     "test": "./bin.js test/*.js"
   },
   "dependencies": {
-    "diff": "^3.5.0"
+    "diff": "^4.0.1"
   },
   "devDependencies": {
     "eslint": "^5.11.1",
