@@ -90,9 +90,12 @@ declare module "awfltst" {
     approx(actual: number, expected: number, variance: number, name?: string): Test;
     approximately(actual: number, expected: number, variance: number, name?: string): Test;
 
-    contains(actual: string|Array<any>, expected: string|Array<any>, name?: string): Test;
-    in(actual: string|Array<any>, expected: string|Array<any>, name?: string): Test;
-    notIn(actual: string|Array<any>, expected: string|Array<any>, name?: string): Test;
+    contains<T>(actual: T[]|string, expected: T, name?: string): Test;
+    notContains<T>(actual: T[]|string, expected: T, name?: string): Test;
+
+    in<T>(actual: T, expected: T[]|string, name?: string): Test;
+    notIn<T>(actual: T, expected: T[]|string, name?: string): Test;
+
     match(actual: string, expected: RegExp, name?: string): Test;
     notMatch(actual: string, expected: RegExp, name?: string): Test;
 
