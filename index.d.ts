@@ -2,6 +2,16 @@ declare module "awfltst" {
   import * as AWFLTST from "awfltst"
   import {InspectOptions} from 'util';
 
+  type ArrayLike<T> =
+    T extends string ? string | Array<string> :
+    T extends (infer U)[] ? Array<U> :
+    Array<T>;
+
+  type NonArrayLike<T> =
+    T extends string ? string :
+    T extends (infer U)[] ? U :
+    T;
+
   export interface AwfltstOptions {
     skip?: boolean;
     only?: boolean;
@@ -90,11 +100,11 @@ declare module "awfltst" {
     approx(actual: number, expected: number, variance: number, name?: string): Test;
     approximately(actual: number, expected: number, variance: number, name?: string): Test;
 
-    contains<T>(actual: T[]|string, expected: T, name?: string): Test;
-    notContains<T>(actual: T[]|string, expected: T, name?: string): Test;
+    contains<T>(actual: ArrayLike<T>, expected: NonArrayLike<T>, name?: string): Test;
+    notContains<T>(actual: ArrayLike<T>, expected: NonArrayLike<T>, name?: string): Test;
 
-    in<T>(actual: T, expected: T[]|string, name?: string): Test;
-    notIn<T>(actual: T, expected: T[]|string, name?: string): Test;
+    in<T>(actual: NonArrayLike<T>, expected: ArrayLike<T>, name?: string): Test;
+    notIn<T>(actual: NonArrayLike<T>, expected: ArrayLike<T>, name?: string): Test;
 
     match(actual: string, expected: RegExp, name?: string): Test;
     notMatch(actual: string, expected: RegExp, name?: string): Test;
