@@ -1,26 +1,6 @@
 declare module "awfltst" {
   import * as AWFLTST from "awfltst"
-
-  // This should ideally be retrieved from the @types/node module, but
-  // since this is the only requirement of that module, adding a
-  // dependency on @types/node to the project seems like a waste.
-  //
-  // The only downside of doing it this way is that it won't
-  // automatically get updated, in case the InspectOptions gets
-  // additional options.
-  export interface InspectOptions {
-    getters?: 'get' | 'set' | boolean;
-    showHidden?: boolean;
-
-    depth?: number | null;
-    colors?: boolean;
-    customInspect?: boolean;
-    showProxy?: boolean;
-    maxArrayLength?: number | null;
-    breakLength?: number;
-    compact?: boolean | number;
-    sorted?: boolean | ((a: string, b: string) => number);
-  }
+  import {InspectOptions} from 'util';
 
   export interface AwfltstOptions {
     skip?: boolean;
