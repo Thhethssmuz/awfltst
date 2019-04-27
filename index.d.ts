@@ -6,11 +6,6 @@ declare module "awfltst" {
     T extends string ? string | Array<string> :
     Array<T>;
 
-  type NonArrayLike<T> =
-    T extends string ? string :
-    T extends (infer U)[] ? U :
-    T;
-
   export interface AwfltstOptions {
     skip?: boolean;
     only?: boolean;
