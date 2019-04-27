@@ -119,7 +119,9 @@ declare module "awfltst" {
     subtest(name: string, options: AwfltstOptions, fn: Function) : Promise<void>;
 
     throws(test: Function|Promise<any>, expected?: RegExp|Function, name?: string): Promise<void>
-      notThrows(test: Function|Promise<any>, expected?: RegExp|Function, name?: string): Promise<void>
+    throws(test: Function|Promise<any>, name?: string): Promise<void>
+    notThrows(test: Function|Promise<any>, expected?: RegExp|Function, name?: string): Promise<void>
+    notThrows(test: Function|Promise<any>, name?: string): Promise<void>
   }
 
   export default function(fn: TestFunction) : void;
