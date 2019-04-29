@@ -21,7 +21,7 @@ declare module "awfltst" {
     at?: string;
   }
 
-  export type TestFunction = (this: Test) => void;
+  export type TestFunction = (this: Test, t: Test) => void;
 
   class Test {
     stdout: string
