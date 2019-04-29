@@ -20,15 +20,15 @@ declare module "awfltst" {
   export type TestFunction = (this: Test, t: Test) => void;
 
   class Test {
-    stdout: string
-    stderr: string
+    stdout: string;
+    stderr: string;
 
     plan(expected: number, name?: string): Test;
 
     compare(comparator: Function, actual: any, expected: any, options?: ComparatorOptions): Test;
     compareWith(comparator: Function, actual: any, expected: any, options?: ComparatorOptions): Test;
 
-    chain(name?: string) : Test;
+    chain(name?: string): Test;
     unchain(): Test;
 
     fail(name?: string): Test;
@@ -103,12 +103,12 @@ declare module "awfltst" {
     match(actual: string, expected: RegExp, name?: string): Test;
     notMatch(actual: string, expected: RegExp, name?: string): Test;
 
-    type(actual: any, expected: Function|String, name?: string): Test
-    instanceOf(actual: any, expected: Function|String, name?: string): Test
-    instanceof(actual: any, expected: Function|String, name?: string): Test
-    instance(actual: any, expected: Function|String, name?: string): Test
-    typeOf(actual: any, expected: Function|String, name?: string): Test
-    typeof(actual: any, expected: Function|String, name?: string): Test
+    type(actual: any, expected: Function|String, name?: string): Test;
+    instanceOf(actual: any, expected: Function|String, name?: string): Test;
+    instanceof(actual: any, expected: Function|String, name?: string): Test;
+    instance(actual: any, expected: Function|String, name?: string): Test;
+    typeOf(actual: any, expected: Function|String, name?: string): Test;
+    typeof(actual: any, expected: Function|String, name?: string): Test;
 
     test(fn: TestFunction): Promise<void>;
     test(name: string, fn: TestFunction): Promise<void>;
@@ -146,10 +146,10 @@ declare module "awfltst" {
     subtest(fn: TestFunction, name: string, options: AwfltstOptions): Promise<void>;
     subtest(fn: TestFunction, options: AwfltstOptions, name: string): Promise<void>;
 
-    throws(test: Function|Promise<any>, expected?: RegExp|Function, name?: string): Promise<void>
-    throws(test: Function|Promise<any>, name?: string): Promise<void>
-    notThrows(test: Function|Promise<any>, expected?: RegExp|Function, name?: string): Promise<void>
-    notThrows(test: Function|Promise<any>, name?: string): Promise<void>
+    throws(test: Function|Promise<any>, expected?: RegExp|Function, name?: string): Promise<void>;
+    throws(test: Function|Promise<any>, name?: string): Promise<void>;
+    notThrows(test: Function|Promise<any>, expected?: RegExp|Function, name?: string): Promise<void>;
+    notThrows(test: Function|Promise<any>, name?: string): Promise<void>;
   }
 
   export default function(fn: TestFunction): void;
