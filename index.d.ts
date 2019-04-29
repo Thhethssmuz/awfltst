@@ -110,20 +110,41 @@ declare module "awfltst" {
     typeOf(actual: any, expected: Function|String, name?: string): Test
     typeof(actual: any, expected: Function|String, name?: string): Test
 
-    test(fn: TestFunction) : Promise<void>;
-    test(name: string, fn: TestFunction) : Promise<void>;
-    test(options: AwfltstOptions, fn: TestFunction) : Promise<void>;
-    test(name: string, options: AwfltstOptions, fn: TestFunction) : Promise<void>;
+    test(fn: TestFunction): Promise<void>;
+    test(name: string, fn: TestFunction): Promise<void>;
+    test(fn: TestFunction, name: string): Promise<void>;
+    test(options: AwfltstOptions, fn: TestFunction): Promise<void>;
+    test(fn: TestFunction, options: AwfltstOptions): Promise<void>;
+    test(name: string, options: AwfltstOptions, fn: TestFunction): Promise<void>;
+    test(name: string, fn: TestFunction, options: AwfltstOptions): Promise<void>;
+    test(options: AwfltstOptions, name: string, fn: TestFunction): Promise<void>;
+    test(options: AwfltstOptions, fn: TestFunction, name: string): Promise<void>;
+    test(fn: TestFunction, name: string, options: AwfltstOptions): Promise<void>;
+    test(fn: TestFunction, options: AwfltstOptions, name: string): Promise<void>;
 
-    subTest(fn: TestFunction) : Promise<void>;
-    subTest(name: string, fn: TestFunction) : Promise<void>;
-    subTest(options: AwfltstOptions, fn: TestFunction) : Promise<void>;
-    subTest(name: string, options: AwfltstOptions, fn: TestFunction) : Promise<void>;
+    subTest(fn: TestFunction): Promise<void>;
+    subTest(name: string, fn: TestFunction): Promise<void>;
+    subTest(fn: TestFunction, name: string): Promise<void>;
+    subTest(options: AwfltstOptions, fn: TestFunction): Promise<void>;
+    subTest(fn: TestFunction, options: AwfltstOptions): Promise<void>;
+    subTest(name: string, options: AwfltstOptions, fn: TestFunction): Promise<void>;
+    subTest(name: string, fn: TestFunction, options: AwfltstOptions): Promise<void>;
+    subTest(options: AwfltstOptions, name: string, fn: TestFunction): Promise<void>;
+    subTest(options: AwfltstOptions, fn: TestFunction, name: string): Promise<void>;
+    subTest(fn: TestFunction, name: string, options: AwfltstOptions): Promise<void>;
+    subTest(fn: TestFunction, options: AwfltstOptions, name: string): Promise<void>;
 
-    subtest(fn: Function) : Promise<void>;
-    subtest(name: string, fn: Function) : Promise<void>;
-    subtest(options: AwfltstOptions, fn: Function) : Promise<void>;
-    subtest(name: string, options: AwfltstOptions, fn: Function) : Promise<void>;
+    subtest(fn: TestFunction): Promise<void>;
+    subtest(name: string, fn: TestFunction): Promise<void>;
+    subtest(fn: TestFunction, name: string): Promise<void>;
+    subtest(options: AwfltstOptions, fn: TestFunction): Promise<void>;
+    subtest(fn: TestFunction, options: AwfltstOptions): Promise<void>;
+    subtest(name: string, options: AwfltstOptions, fn: TestFunction): Promise<void>;
+    subtest(name: string, fn: TestFunction, options: AwfltstOptions): Promise<void>;
+    subtest(options: AwfltstOptions, name: string, fn: TestFunction): Promise<void>;
+    subtest(options: AwfltstOptions, fn: TestFunction, name: string): Promise<void>;
+    subtest(fn: TestFunction, name: string, options: AwfltstOptions): Promise<void>;
+    subtest(fn: TestFunction, options: AwfltstOptions, name: string): Promise<void>;
 
     throws(test: Function|Promise<any>, expected?: RegExp|Function, name?: string): Promise<void>
     throws(test: Function|Promise<any>, name?: string): Promise<void>
@@ -131,8 +152,15 @@ declare module "awfltst" {
     notThrows(test: Function|Promise<any>, name?: string): Promise<void>
   }
 
-  export default function(fn: TestFunction) : void;
-  export default function(name: string, fn: TestFunction) : void;
-  export default function(options: AwfltstOptions, fn: TestFunction) : void;
-  export default function(name: string, options: AwfltstOptions, fn: TestFunction) : void;
+  export default function(fn: TestFunction): void;
+  export default function(name: string, fn: TestFunction): void;
+  export default function(fn: TestFunction, name: string): void;
+  export default function(options: AwfltstOptions, fn: TestFunction): void;
+  export default function(fn: TestFunction, options: AwfltstOptions): void;
+  export default function(name: string, options: AwfltstOptions, fn: TestFunction): void;
+  export default function(name: string, fn: TestFunction, options: AwfltstOptions): void;
+  export default function(options: AwfltstOptions, name: string, fn: TestFunction): void;
+  export default function(options: AwfltstOptions, fn: TestFunction, name: string): void;
+  export default function(fn: TestFunction, name: string, options: AwfltstOptions): void;
+  export default function(fn: TestFunction, options: AwfltstOptions, name: string): void;
 }
