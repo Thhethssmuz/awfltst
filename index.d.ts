@@ -47,24 +47,24 @@ declare module "awfltst" {
     notok(actual: any, name?: string): Test;
     false(actual: any, name?: string): Test;
 
-    eq(actual: any, expected: any, name?: string): Test;
-    deepStrictEquals(actual: any, expected: any, name?: string): Test;
-    deepStrictEqual(actual: any, expected: any, name?: string): Test;
-    deepEquals(actual: any, expected: any, name?: string): Test;
-    deepEqual(actual: any, expected: any, name?: string): Test;
-    equals(actual: any, expected: any, name?: string): Test;
-    equal(actual: any, expected: any, name?: string): Test;
-    is(actual: any, expected: any, name?: string): Test;
+    eq<T>(actual: T, expected: T, name?: string): Test;
+    deepStrictEquals<T>(actual: T, expected: T, name?: string): Test;
+    deepStrictEqual<T>(actual: T, expected: T, name?: string): Test;
+    deepEquals<T>(actual: T, expected: T, name?: string): Test;
+    deepEqual<T>(actual: T, expected: T, name?: string): Test;
+    equals<T>(actual: T, expected: T, name?: string): Test;
+    equal<T>(actual: T, expected: T, name?: string): Test;
+    is<T>(actual: T, expected: T, name?: string): Test;
 
-    ne(actual: any, expected: any, name?: string): Test;
-    notDeepStrictEquals(actual: any, expected: any, name?: string): Test;
-    notDeepStrictEqual(actual: any, expected: any, name?: string): Test;
-    notDeepEquals(actual: any, expected: any, name?: string): Test;
-    notDeepEqual(actual: any, expected: any, name?: string): Test;
-    notEquals(actual: any, expected: any, name?: string): Test;
-    notEqual(actual: any, expected: any, name?: string): Test;
-    isNot(actual: any, expected: any, name?: string): Test;
-    neq(actual: any, expected: any, name?: string): Test;
+    ne<T>(actual: T, expected: T, name?: string): Test;
+    notDeepStrictEquals<T>(actual: T, expected: T, name?: string): Test;
+    notDeepStrictEqual<T>(actual: T, expected: T, name?: string): Test;
+    notDeepEquals<T>(actual: T, expected: T, name?: string): Test;
+    notDeepEqual<T>(actual: T, expected: T, name?: string): Test;
+    notEquals<T>(actual: T, expected: T, name?: string): Test;
+    notEqual<T>(actual: T, expected: T, name?: string): Test;
+    isNot<T>(actual: T, expected: T, name?: string): Test;
+    neq<T>(actual: T, expected: T, name?: string): Test;
 
     gt(actual: any, expected: any, name?: string): Test;
     greaterThan(actual: any, expected: any, name?: string): Test;
