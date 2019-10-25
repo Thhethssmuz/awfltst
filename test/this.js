@@ -228,8 +228,8 @@ test('this.chain', async function () {
     '',
     '',
     '  Total:      1 test    12 assertions',
-    '  Passing:    0 tests    9 assertions',
-    '  Failing:    1 test     3 assertions',
+    '  Passing:    0 tests   9 assertions',
+    '  Failing:    1 test    3 assertions',
     '  Duration:   _ ms',
     ''], 'spec output');
 });
@@ -1136,9 +1136,9 @@ test('this.test', async function () {
     '',
     '  Total:      19 tests   16 assertions',
     '  Passing:    14 tests   14 assertions',
-    '  Failing:     3 tests    2 assertions',
-    '  Skipped:     2 tests',
-    '  Duration:    _ ms',
+    '  Failing:    3 tests   2 assertions',
+    '  Skipped:    2 tests',
+    '  Duration:   _ ms',
     ''], 'spec output');
 });
 

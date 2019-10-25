@@ -22,6 +22,25 @@ module.exports = async function (...args) {
   const result = await exec('--reporter=spec', ...args);
   result.stdout = result.stdout.map(x => x.replace(/\d+ (ms|s|m|h)$/, '_ ms'));
   result.stderr = result.stderr.map(x => x.replace(/\d+ (ms|s|m|h)$/, '_ ms'));
+
+  /* eslint-disable no-regex-spaces */
+  const summaryParts = [
+    /^(  Total:      )(\s*\d+)( test)(s)?(   )(\s*\d+)( assertions?)$/,
+    /^(  Passing:    )(\s*\d+)( test)(s)?(   )(\s*\d+)( assertions?)$/,
+    /^(  Failing:    )(\s*\d+)( test)(s)?(   )(\s*\d+)( assertions?)$/,
+    /^(  Skipped:    )(\s*\d+)( test)(s)?()()()$/,
+    /^(  Duration:   )(\s*_)( ms)()()()()$/
+  ];
+  /* eslint-enable no-regex-spaces */
+
+  // eslint-disable-next-line max-params
+  const sanitizeSummary = (_, a, b, c, d, e, f, g) =>
+    a + (b.trim() + (c || '') + (d || ' ') + (e || '') + (f || '').trim() +
+    (g || '')).trim();
+
+  for (const reg of summaryParts)
+    result.stdout = result.stdout.map(x => x.replace(reg, sanitizeSummary));
+
   return result;
 };
 
