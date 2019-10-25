@@ -2,6 +2,7 @@
 
 const test = require('..');
 const exec = require('./exec');
+const NODE_MAJOR = parseInt(process.versions.node.split('.')[0], 10);
 
 
 test('this.stdout', async function () {
@@ -389,9 +390,8 @@ test('this.not', async function () {
 
 test('this.eq', async function () {
   const result  = await exec('test/spawn/eq.js');
-  const version = parseInt(process.versions.node.split('.')[0], 10);
 
-  this.eq(result.stdout, version < 11 ? [
+  this.eq(result.stdout, NODE_MAJOR < 11 ? [
     '',
     '  1 (anonymous) _ ms',
     '',
@@ -559,7 +559,6 @@ test('this.eq', async function () {
     '  Failing:    3 tests   4 assertions',
     '  Duration:   _ ms',
     ''], 'spec output');
-
 });
 
 test('this.ne', async function () {
@@ -1055,7 +1054,9 @@ test('this.instance', async function () {
     '',
     '      At:       ./test/spawn/instance.js (10:8)',
     '      Operator: instance',
-    '      Expected: [Function]',
+    (NODE_MAJOR < 13 ?
+    '      Expected: [Function]' :
+    '      Expected: [Function (anonymous)]'),
     '      Actual:   1',
     '',
     '',
