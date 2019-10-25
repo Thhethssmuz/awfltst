@@ -4,6 +4,7 @@
   "version": "0.1.2",
   "description": "async test library",
   "main": "lib",
+  "types": "index.d.ts",
   "bin": {
     "awfltst": "bin.js"
   },
@@ -15,6 +16,7 @@
     "test": "./bin.js test/*.js"
   },
   "dependencies": {
+    "@types/node": "^11.13.8",
     "diff": "^4.0.1"
   },
   "devDependencies": {
