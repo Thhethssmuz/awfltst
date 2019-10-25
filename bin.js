@@ -4,6 +4,7 @@
 const test = require('.');
 const {resolve} = require('path');
 const {log, error} = console;
+const hasOwnProperty = Function.call.bind(Object.prototype.hasOwnProperty);
 
 const doc =
 `Usage:
@@ -139,9 +140,9 @@ if (!options.files) {
   process.exit(1);
 }
 
-if (!options.hasOwnProperty('color')) {
+if (!hasOwnProperty(options, 'color')) {
   options.color =
-    !process.env.hasOwnProperty('NO_COLOR') && process.stdout._type === 'tty';
+    !hasOwnProperty(process.env, 'NO_COLOR') && process.stdout._type === 'tty';
 }
 
 for (const file of options.files)
