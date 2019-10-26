@@ -1054,9 +1054,9 @@ test('this.instance', async function () {
     '',
     '      At:       ./test/spawn/instance.js (10:8)',
     '      Operator: instance',
-    (NODE_MAJOR < 13 ?
-    '      Expected: [Function]' :
-    '      Expected: [Function (anonymous)]'),
+    NODE_MAJOR < 13 ?
+      '      Expected: [Function]' :
+      '      Expected: [Function (anonymous)]',
     '      Actual:   1',
     '',
     '',
