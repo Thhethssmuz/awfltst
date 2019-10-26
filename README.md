@@ -83,13 +83,106 @@ Create a new Test.
 **Params**
 
 - [name] <code>String</code> - The name of this test.
-- [options] <code>Object</code> - Options object.
-    - [.skip] <code>Boolean</code> - Whether or not to skip this test.
-    - [.only] <code>Boolean</code> - Whether or not to run only this test.
-    - [.console] <code>Boolean</code> <code> = true</code> - Whether or not to capture console output.
-    - [.group] <code>String</code> | <code>Array.&lt;String&gt;</code> - The group(s) this test belongs to.
-    - [.inspect] <code>Object</code> - Options passed to `util.inspect` when reporting errors.
+- [options] [<code>TestOptions</code>](#TestOptions) - Options object.
 - test <code>function</code> - Test function.
+
+
+* [test([name], [options], test)](#test)
+    * [.only([name], [options], test)](#test.only)
+    * [.skip([name], [options], test)](#test.skip)
+    * [.before([options], before)](#test.before)
+    * [.after([options], after)](#test.after)
+
+
+* * *
+
+<a name="test.only"></a>
+
+#### test.only([name], [options], test)
+Shorthand for creating a test with `option.only = true`.
+
+**Kind**: static method of [<code>test</code>](#test)  
+**Params**
+
+- [name] <code>String</code> - The name of this test.
+- [options] [<code>TestOptions</code>](#TestOptions) - Options object.
+- test <code>function</code> - Test function.
+
+
+* * *
+
+<a name="test.skip"></a>
+
+#### test.skip([name], [options], test)
+Shorthand for creating a test with `option.skip = true`.
+
+**Kind**: static method of [<code>test</code>](#test)  
+**Params**
+
+- [name] <code>String</code> - The name of this test.
+- [options] [<code>TestOptions</code>](#TestOptions) - Options object.
+- test <code>function</code> - Test function.
+
+
+* * *
+
+<a name="test.before"></a>
+
+#### test.before([options], before)
+Create a before hook that will be run before every test.
+
+**Kind**: static method of [<code>test</code>](#test)  
+**Params**
+
+- [options] [<code>HookOptions</code>](#HookOptions) - Options object.
+- before <code>function</code> - Setup function.
+
+
+* * *
+
+<a name="test.after"></a>
+
+#### test.after([options], after)
+Create an after hook that will be run after every test.
+
+**Kind**: static method of [<code>test</code>](#test)  
+**Params**
+
+- [options] [<code>HookOptions</code>](#HookOptions) - Options object.
+- after <code>function</code> - Teardown function.
+
+
+* * *
+
+
+<a name="TestOptions"></a>
+
+### TestOptions : <code>Object</code>
+Test options.
+
+**Kind**: global typedef  
+**Properties**
+
+- skip <code>Boolean</code> - Whether or not to skip this test.  
+- only <code>Boolean</code> - Whether or not to run only this test.  
+- console <code>Boolean</code> - Whether or not to capture console output.  
+- group <code>String</code> \| <code>Array.&lt;String&gt;</code> - The group(s) this test belongs to.  
+- inspect <code>Object</code> - Options passed to `util.inspect` when reporting errors.  
+
+
+* * *
+
+
+<a name="HookOptions"></a>
+
+### HookOptions : <code>Object</code>
+Hook options.
+
+**Kind**: global typedef  
+**Properties**
+
+- group <code>String</code> \| <code>Array.&lt;String&gt;</code> - The group(s) this hook will be limited to.  
+- skipGroup <code>String</code> \| <code>Array.&lt;String&gt;</code> - The group(s) this hook will ignore.  
 
 
 * * *
@@ -110,31 +203,31 @@ function fore those that favours arrow functions.
     * [.stdout](#this.stdout)
     * [.stderr](#this.stderr) ⇒ <code>String</code>
     * [.stderr](#this.stderr)
-    * [.plan](#this.plan) ⇒ <code>Test</code>
-    * [.compare](#this.compare) ⇒ <code>Test</code>
-    * [.chain](#this.chain) ⇒ <code>Test</code>
-    * [.unchain](#this.unchain) ⇒ <code>Test</code>
-    * [.fail](#this.fail) ⇒ <code>Test</code>
-    * [.pass](#this.pass) ⇒ <code>Test</code>
-    * [.error](#this.error) ⇒ <code>Test</code>
-    * [.ok](#this.ok) ⇒ <code>Test</code>
-    * [.not](#this.not) ⇒ <code>Test</code>
-    * [.eq](#this.eq) ⇒ <code>Test</code>
-    * [.ne](#this.ne) ⇒ <code>Test</code>
-    * [.gt](#this.gt) ⇒ <code>Test</code>
-    * [.gte](#this.gte) ⇒ <code>Test</code>
-    * [.lte](#this.lte) ⇒ <code>Test</code>
-    * [.lt](#this.lt) ⇒ <code>Test</code>
-    * [.between](#this.between) ⇒ <code>Test</code>
-    * [.notBetween](#this.notBetween) ⇒ <code>Test</code>
-    * [.approx](#this.approx) ⇒ <code>Test</code>
-    * [.contains](#this.contains) ⇒ <code>Test</code>
-    * [.notContains](#this.notContains) ⇒ <code>Test</code>
-    * [.in](#this.in) ⇒ <code>Test</code>
-    * [.notIn](#this.notIn) ⇒ <code>Test</code>
-    * [.type](#this.type) ⇒ <code>Test</code>
-    * [.match](#this.match) ⇒ <code>Test</code>
-    * [.notMatch](#this.notMatch) ⇒ <code>Test</code>
+    * [.plan](#this.plan) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.compare](#this.compare) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.chain](#this.chain) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.unchain](#this.unchain) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.fail](#this.fail) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.pass](#this.pass) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.error](#this.error) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.ok](#this.ok) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.not](#this.not) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.eq](#this.eq) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.ne](#this.ne) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.gt](#this.gt) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.gte](#this.gte) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.lte](#this.lte) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.lt](#this.lt) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.between](#this.between) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.notBetween](#this.notBetween) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.approx](#this.approx) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.contains](#this.contains) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.notContains](#this.notContains) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.in](#this.in) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.notIn](#this.notIn) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.type](#this.type) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.match](#this.match) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.notMatch](#this.notMatch) ⇒ [<code>Test</code>](#new_Test_new)
     * [.test](#this.test)
     * [.throws](#this.throws)
     * [.notThrows](#this.notThrows)
@@ -190,11 +283,11 @@ Setter for console output written to stderr during the test.
 
 <a name="this.plan"></a>
 
-#### this.plan ⇒ <code>Test</code>
+#### this.plan ⇒ [<code>Test</code>](#new_Test_new)
 Set the number of assertions planned for this test.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
 - expected <code>Number</code>
@@ -205,13 +298,13 @@ Set the number of assertions planned for this test.
 
 <a name="this.compare"></a>
 
-#### this.compare ⇒ <code>Test</code>
+#### this.compare ⇒ [<code>Test</code>](#new_Test_new)
 Compare using a custom comparator function.
 
 **Aliases**: `compareWith`.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
 - comparator <code>function</code> - The comparator function to use for the assertion. The function is passed
@@ -235,12 +328,12 @@ diffed in the test output. Default to false.
 
 <a name="this.chain"></a>
 
-#### this.chain ⇒ <code>Test</code>
+#### this.chain ⇒ [<code>Test</code>](#new_Test_new)
 Create a "chain test", a special form of sub-test created purely through
 chaining calls on the returned Test instance.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this, ish...  
+**Returns**: [<code>Test</code>](#new_Test_new) - this, ish...  
 **Params**
 
 - [name] <code>String</code>
@@ -250,21 +343,21 @@ chaining calls on the returned Test instance.
 
 <a name="this.unchain"></a>
 
-#### this.unchain ⇒ <code>Test</code>
+#### this.unchain ⇒ [<code>Test</code>](#new_Test_new)
 Return to the parent of this chain. Useful in nested chain tests.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - The chain's parent, or this if this is not a chain test.  
+**Returns**: [<code>Test</code>](#new_Test_new) - The chain's parent, or this if this is not a chain test.  
 
 * * *
 
 <a name="this.fail"></a>
 
-#### this.fail ⇒ <code>Test</code>
+#### this.fail ⇒ [<code>Test</code>](#new_Test_new)
 Assertion that automatically fails.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
 - [name] <code>String</code>
@@ -274,11 +367,11 @@ Assertion that automatically fails.
 
 <a name="this.pass"></a>
 
-#### this.pass ⇒ <code>Test</code>
+#### this.pass ⇒ [<code>Test</code>](#new_Test_new)
 Assertion that automatically succeeds.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
 - [name] <code>String</code>
@@ -288,11 +381,11 @@ Assertion that automatically succeeds.
 
 <a name="this.error"></a>
 
-#### this.error ⇒ <code>Test</code>
+#### this.error ⇒ [<code>Test</code>](#new_Test_new)
 Assertion that automatically fails with the given error.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
 - error <code>\*</code>
@@ -303,13 +396,13 @@ Assertion that automatically fails with the given error.
 
 <a name="this.ok"></a>
 
-#### this.ok ⇒ <code>Test</code>
+#### this.ok ⇒ [<code>Test</code>](#new_Test_new)
 Assert a "truthy" value.
 
 **Aliases**: `true`.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
 - actual <code>\*</code>
@@ -320,13 +413,13 @@ Assert a "truthy" value.
 
 <a name="this.not"></a>
 
-#### this.not ⇒ <code>Test</code>
+#### this.not ⇒ [<code>Test</code>](#new_Test_new)
 Assert a "falsy" value. Inverse of `ok`.
 
 **Aliases**: `false`, `notOk`, `notok`.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
 - actual <code>\*</code>
@@ -337,14 +430,14 @@ Assert a "falsy" value. Inverse of `ok`.
 
 <a name="this.eq"></a>
 
-#### this.eq ⇒ <code>Test</code>
+#### this.eq ⇒ [<code>Test</code>](#new_Test_new)
 Assert deep equality.
 
 **Aliases**: `deepStrictEquals`, `deepStrictEqual`, `deepEquals`,
   `deepEqual`, `equals`, `equal`, `is`.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
 - actual <code>\*</code>
@@ -356,14 +449,14 @@ Assert deep equality.
 
 <a name="this.ne"></a>
 
-#### this.ne ⇒ <code>Test</code>
+#### this.ne ⇒ [<code>Test</code>](#new_Test_new)
 Assert deep inequality. Inverse of `eq`.
 
 **Aliases**: `notDeepStrictEquals`, `notDeepStrictEqual`, `notDeepEquals`,
   `notDeepEqual`, `isNotEqual`, `notEquals`, `notEqual`, `isNot`, `neq`.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
 - actual <code>\*</code>
@@ -375,13 +468,13 @@ Assert deep inequality. Inverse of `eq`.
 
 <a name="this.gt"></a>
 
-#### this.gt ⇒ <code>Test</code>
+#### this.gt ⇒ [<code>Test</code>](#new_Test_new)
 Assert that `actual` is greater than `expected`.
 
 **Aliases**: `greaterThan`, `greater`.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
 - actual <code>\*</code>
@@ -393,14 +486,14 @@ Assert that `actual` is greater than `expected`.
 
 <a name="this.gte"></a>
 
-#### this.gte ⇒ <code>Test</code>
+#### this.gte ⇒ [<code>Test</code>](#new_Test_new)
 Assert that `actual` is greater than or equal to `expected`.
 
 **Aliases**: `greaterThanOrEquals`, `greaterThanOrEqual`,
   `greaterOrEquals`, `greaterOrEqual`, `ge`.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
 - actual <code>\*</code>
@@ -412,14 +505,14 @@ Assert that `actual` is greater than or equal to `expected`.
 
 <a name="this.lte"></a>
 
-#### this.lte ⇒ <code>Test</code>
+#### this.lte ⇒ [<code>Test</code>](#new_Test_new)
 Assert that `actual` is less than or equal to `expected`.
 
 **Aliases**: `lessThanOrEquals`, `lessThanOrEqual`, `lessOrEquals`,
   `lessOrEqual`, `le`.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
 - actual <code>\*</code>
@@ -431,13 +524,13 @@ Assert that `actual` is less than or equal to `expected`.
 
 <a name="this.lt"></a>
 
-#### this.lt ⇒ <code>Test</code>
+#### this.lt ⇒ [<code>Test</code>](#new_Test_new)
 Assert that `actual` is less than `expected`.
 
 **Aliases**: `lessThan`,  `less`.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
 - actual <code>\*</code>
@@ -449,11 +542,11 @@ Assert that `actual` is less than `expected`.
 
 <a name="this.between"></a>
 
-#### this.between ⇒ <code>Test</code>
+#### this.between ⇒ [<code>Test</code>](#new_Test_new)
 Assert that `actual` is within the given range.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
 - actual <code>\*</code>
@@ -466,11 +559,11 @@ Assert that `actual` is within the given range.
 
 <a name="this.notBetween"></a>
 
-#### this.notBetween ⇒ <code>Test</code>
+#### this.notBetween ⇒ [<code>Test</code>](#new_Test_new)
 Assert that `actual` is not within the given range. Inverse of `between`.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
 - actual <code>\*</code>
@@ -483,14 +576,14 @@ Assert that `actual` is not within the given range. Inverse of `between`.
 
 <a name="this.approx"></a>
 
-#### this.approx ⇒ <code>Test</code>
+#### this.approx ⇒ [<code>Test</code>](#new_Test_new)
 Assert that `actual` is equal to `expected` with a variance threshold of
 ± `variance`.
 
 **Aliases**: `approximately`.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
 - actual <code>Number</code>
@@ -503,15 +596,15 @@ Assert that `actual` is equal to `expected` with a variance threshold of
 
 <a name="this.contains"></a>
 
-#### this.contains ⇒ <code>Test</code>
+#### this.contains ⇒ [<code>Test</code>](#new_Test_new)
 Assert that `actual` contains `expected`.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
-- actual <code>String</code> | <code>Array</code>
-- expected <code>String</code> | <code>Array</code>
+- actual <code>\*</code>
+- expected <code>\*</code>
 - [name] <code>String</code>
 
 
@@ -519,15 +612,15 @@ Assert that `actual` contains `expected`.
 
 <a name="this.notContains"></a>
 
-#### this.notContains ⇒ <code>Test</code>
+#### this.notContains ⇒ [<code>Test</code>](#new_Test_new)
 Assert that `actual` does not contain `expected`. Inverse of `contains`.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
-- actual <code>String</code> | <code>Array</code>
-- expected <code>String</code> | <code>Array</code>
+- actual <code>\*</code>
+- expected <code>\*</code>
 - [name] <code>String</code>
 
 
@@ -535,16 +628,16 @@ Assert that `actual` does not contain `expected`. Inverse of `contains`.
 
 <a name="this.in"></a>
 
-#### this.in ⇒ <code>Test</code>
+#### this.in ⇒ [<code>Test</code>](#new_Test_new)
 Assert that `actual` is in `expected`. Reversed order version of
 `contains`.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
-- actual <code>String</code> | <code>Array</code>
-- expected <code>String</code> | <code>Array</code>
+- actual <code>\*</code>
+- expected <code>\*</code>
 - [name] <code>String</code>
 
 
@@ -552,15 +645,15 @@ Assert that `actual` is in `expected`. Reversed order version of
 
 <a name="this.notIn"></a>
 
-#### this.notIn ⇒ <code>Test</code>
+#### this.notIn ⇒ [<code>Test</code>](#new_Test_new)
 Assert that `actual` is not in `expected`. Inverse of `in`.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
-- actual <code>String</code> | <code>Array</code>
-- expected <code>String</code> | <code>Array</code>
+- actual <code>\*</code>
+- expected <code>\*</code>
 - [name] <code>String</code>
 
 
@@ -568,14 +661,14 @@ Assert that `actual` is not in `expected`. Inverse of `in`.
 
 <a name="this.type"></a>
 
-#### this.type ⇒ <code>Test</code>
+#### this.type ⇒ [<code>Test</code>](#new_Test_new)
 Assert that `actual` has a type of `expected` or is an instance of
 `expected`.
 
 **Aliases**: `instanceOf`, `instanceof`, `instance`, `typeOf`, `typeof`.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
 - actual <code>\*</code>
@@ -587,11 +680,11 @@ Assert that `actual` has a type of `expected` or is an instance of
 
 <a name="this.match"></a>
 
-#### this.match ⇒ <code>Test</code>
+#### this.match ⇒ [<code>Test</code>](#new_Test_new)
 Assert that `actual` matches the given regular expression `expected`.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
 - actual <code>String</code>
@@ -603,12 +696,12 @@ Assert that `actual` matches the given regular expression `expected`.
 
 <a name="this.notMatch"></a>
 
-#### this.notMatch ⇒ <code>Test</code>
+#### this.notMatch ⇒ [<code>Test</code>](#new_Test_new)
 Assert that `actual` does not match the given regular expression
 `expected`. Inverse of `match`.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Returns**: <code>Test</code> - this  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
 **Params**
 
 - actual <code>String</code>
