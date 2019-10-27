@@ -1,5 +1,6 @@
 'use strict';
 
+const wrap = x => `\x1e${x}\n`;
 const test = require('..');
 const reporters = require('../lib/reporters');
 
@@ -124,13 +125,13 @@ test('reporters.json', async function () {
   reporter.report(results[0]);
   reporter.summary();
 
-  this.eq(this.stdout, JSON.stringify(results[0]) + '\n', 'successful test');
+  this.eq(this.stdout, wrap(JSON.stringify(results[0])), 'successful test');
 
   this.stdout = '';
   reporter.report(results[1]);
   reporter.summary();
 
-  this.eq(this.stdout, JSON.stringify(results[1]) + '\n', 'failed test');
+  this.eq(this.stdout, wrap(JSON.stringify(results[1])), 'failed test');
 
   this.stdout = '';
 });

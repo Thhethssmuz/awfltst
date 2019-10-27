@@ -2,6 +2,7 @@
 'use strict';
 
 const test = require('.');
+const json = require('./lib/json');
 const {resolve} = require('path');
 const {log, error} = console;
 const hasOwnProperty = Function.call.bind(Object.prototype.hasOwnProperty);
@@ -22,6 +23,7 @@ Options:
   -g, --group <group-name>      Exclusively execute a single test group.
   -G, --skip-group <group-name> Exclude a single test group from execution.
   --reporter spec|json          Set output format. Defaults to 'spec'.
+  --json                        Reformat previous json output from stdin.
   --[no-]colo[u]r               Force enable/disable coloured output.
   --[no-]capture-console        Force enable/disable console capture.
 `;
@@ -83,6 +85,10 @@ while (argv.length) {
       }
       break;
 
+    case '--json':
+      options.json = true;
+      break;
+
     case '--color':
     case '--colour':
       options.color = true;
@@ -134,6 +140,9 @@ while (argv.length) {
       options.files.push(arg);
   }
 }
+
+if (options.json)
+  return json(options);
 
 if (!options.files) {
   error('awfltst: missing <file-path>...');
