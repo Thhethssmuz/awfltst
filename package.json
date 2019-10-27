@@ -20,7 +20,7 @@
     "diff": "^4.0.1"
   },
   "devDependencies": {
-    "eslint": "^6.5.1",
+    "eslint": "^6.6.0",
     "jsdoc-to-markdown": "^5.0.2",
     "nyc": "^14.1.1"
   },
