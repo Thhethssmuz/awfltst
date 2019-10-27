@@ -2,6 +2,7 @@
 
 const test = require('..');
 const exec = require('./exec');
+const {PassThrough} = require('stream');
 
 
 test('cli --only', async function () {
@@ -450,4 +451,56 @@ test('cli --skip-group', async function () {
     '  Skipped:    3 tests',
     '  Duration:   _ ms',
     ''], '--skip-group a --skip-group b');
+});
+
+test('cli --json', async function () {
+
+  await this.test('raw | --json --reporter=json', async function () {
+    const original = ['lol', ''];
+    const stream = new PassThrough();
+
+    for (const line of original)
+      stream.write(line + '\n');
+    stream.end();
+
+    const reformat = await exec.json('--json', {stdin: stream});
+    this.eq(reformat.stdout, original,
+            'reformat raw text to json should return same output');
+  });
+
+  await this.test('invalid | --json --reporter=json', async function () {
+    const original = ['\x1enot json', ''];
+    const stream = new PassThrough();
+
+    for (const line of original)
+      stream.write(line + '\n');
+    stream.end();
+
+    const reformat = await exec.json('--json', {stdin: stream});
+    this.eq(reformat.stdout, original,
+            'reformat invalid json to json should return same output');
+  });
+
+  const spawn = [
+    'test/spawn/console.js',
+    'test/spawn/json.js'
+  ];
+
+  await this.test('json | --json --reporter=json', async function () {
+    const stream = new PassThrough();
+    const original = await exec.json(...spawn, {stdout: stream});
+    const reformat = await exec.json('--json', {stdin: stream});
+    this.eq(reformat.stdout, original.stdout,
+            'reformat json to json should return same output');
+  });
+
+  await this.test('json | --json --reporter=spec', async function () {
+    const original = await exec(...spawn);
+    const stream = new PassThrough();
+    await exec.json(...spawn, {stdout: stream});
+    const reformat = await exec('--json', {stdin: stream});
+    this.eq(reformat.stdout, original.stdout,
+            'reformat to spec should return same output as running test with ' +
+            'spec formatter');
+  });
 });
