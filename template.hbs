@@ -67,6 +67,7 @@ Options:
   -g, --group <group-name>      Exclusively execute a single test group.
   -G, --skip-group <group-name> Exclude a single test group from execution.
   --reporter spec|json          Set output format. Defaults to 'spec'.
+  --json                        Reformat previous json output from stdin.
   --[no-]colo[u]r               Force enable/disable coloured output.
   --[no-]capture-console        Force enable/disable console capture.
 
