@@ -182,6 +182,7 @@ Hook options.
 **Kind**: global typedef  
 **Properties**
 
+- once <code>Boolean</code> - Whether or not this hook should be run only once.  
 - group <code>String</code> \| <code>Array.&lt;String&gt;</code> - The group(s) this hook will be limited to.  
 - skipGroup <code>String</code> \| <code>Array.&lt;String&gt;</code> - The group(s) this hook will ignore.  
 
@@ -227,6 +228,8 @@ function fore those that favours arrow functions.
     * [.in](#this.in) ⇒ [<code>Test</code>](#new_Test_new)
     * [.notIn](#this.notIn) ⇒ [<code>Test</code>](#new_Test_new)
     * [.type](#this.type) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.has](#this.has) ⇒ [<code>Test</code>](#new_Test_new)
+    * [.lack](#this.lack) ⇒ [<code>Test</code>](#new_Test_new)
     * [.match](#this.match) ⇒ [<code>Test</code>](#new_Test_new)
     * [.notMatch](#this.notMatch) ⇒ [<code>Test</code>](#new_Test_new)
     * [.test](#this.test)
@@ -674,6 +677,42 @@ Assert that `actual` has a type of `expected` or is an instance of
 
 - actual <code>\*</code>
 - expected <code>String</code> | <code>function</code>
+- [name] <code>String</code>
+
+
+* * *
+
+<a name="this.has"></a>
+
+#### this.has ⇒ [<code>Test</code>](#new_Test_new)
+Assert that `actual` has a property `expected`.
+
+**Aliases**: `hasOwnProperty`.
+
+**Kind**: static property of [<code>this</code>](#this)  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
+**Params**
+
+- actual <code>Object</code>
+- expected <code>String</code>
+- [name] <code>String</code>
+
+
+* * *
+
+<a name="this.lack"></a>
+
+#### this.lack ⇒ [<code>Test</code>](#new_Test_new)
+Assert that `actual` does not have a property `expected`. Inverse of `has`.
+
+**Aliases**: `lackOwnProperty`.
+
+**Kind**: static property of [<code>this</code>](#this)  
+**Returns**: [<code>Test</code>](#new_Test_new) - this  
+**Params**
+
+- actual <code>Object</code>
+- expected <code>String</code>
 - [name] <code>String</code>
 
 
