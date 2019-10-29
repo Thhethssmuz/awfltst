@@ -11,6 +11,7 @@ declare module "awfltst" {
   }
 
   export interface HookOptions {
+    once?: boolean;
     group?: string|Array<string>;
     skipGroup?: string|Array<string>;
   }
@@ -106,6 +107,11 @@ declare module "awfltst" {
     notIn<T>(actual: T, expected: Array<T>, name?: string): Test;
     notIn(actual: string, expected: string, name?: string): Test;
 
+    has(actual: Object, expected: string, name?: string): Test;
+    hasOwnProperty(actual: Object, expected: string, name?: string): Test;
+    lack(actual: Object, expected: string, name?: string): Test;
+    lackOwnProperty(actual: Object, expected: string, name?: string): Test;
+
     match(actual: string, expected: RegExp, name?: string): Test;
     notMatch(actual: string, expected: RegExp, name?: string): Test;
 
@@ -158,15 +164,63 @@ declare module "awfltst" {
     notThrows(test: Function|Promise<any>, name?: string): Promise<void>;
   }
 
-  export default function(fn: TestFunction): void;
-  export default function(name: string, fn: TestFunction): void;
-  export default function(fn: TestFunction, name: string): void;
-  export default function(options: TestOptions, fn: TestFunction): void;
-  export default function(fn: TestFunction, options: TestOptions): void;
-  export default function(name: string, options: TestOptions, fn: TestFunction): void;
-  export default function(name: string, fn: TestFunction, options: TestOptions): void;
-  export default function(options: TestOptions, name: string, fn: TestFunction): void;
-  export default function(options: TestOptions, fn: TestFunction, name: string): void;
-  export default function(fn: TestFunction, name: string, options: TestOptions): void;
-  export default function(fn: TestFunction, options: TestOptions, name: string): void;
+  export default function (fn: TestFunction): void;
+  export default function (name: string, fn: TestFunction): void;
+  export default function (fn: TestFunction, name: string): void;
+  export default function (options: TestOptions, fn: TestFunction): void;
+  export default function (fn: TestFunction, options: TestOptions): void;
+  export default function (name: string, options: TestOptions, fn: TestFunction): void;
+  export default function (name: string, fn: TestFunction, options: TestOptions): void;
+  export default function (options: TestOptions, name: string, fn: TestFunction): void;
+  export default function (options: TestOptions, fn: TestFunction, name: string): void;
+  export default function (fn: TestFunction, name: string, options: TestOptions): void;
+  export default function (fn: TestFunction, options: TestOptions, name: string): void;
+
+  export function only(fn: TestFunction): void;
+  export function only(name: string, fn: TestFunction): void;
+  export function only(fn: TestFunction, name: string): void;
+  export function only(options: TestOptions, fn: TestFunction): void;
+  export function only(fn: TestFunction, options: TestOptions): void;
+  export function only(name: string, options: TestOptions, fn: TestFunction): void;
+  export function only(name: string, fn: TestFunction, options: TestOptions): void;
+  export function only(options: TestOptions, name: string, fn: TestFunction): void;
+  export function only(options: TestOptions, fn: TestFunction, name: string): void;
+  export function only(fn: TestFunction, name: string, options: TestOptions): void;
+  export function only(fn: TestFunction, options: TestOptions, name: string): void;
+
+  export function skip(fn: TestFunction): void;
+  export function skip(name: string, fn: TestFunction): void;
+  export function skip(fn: TestFunction, name: string): void;
+  export function skip(options: TestOptions, fn: TestFunction): void;
+  export function skip(fn: TestFunction, options: TestOptions): void;
+  export function skip(name: string, options: TestOptions, fn: TestFunction): void;
+  export function skip(name: string, fn: TestFunction, options: TestOptions): void;
+  export function skip(options: TestOptions, name: string, fn: TestFunction): void;
+  export function skip(options: TestOptions, fn: TestFunction, name: string): void;
+  export function skip(fn: TestFunction, name: string, options: TestOptions): void;
+  export function skip(fn: TestFunction, options: TestOptions, name: string): void;
+
+  export function before(fn: TestFunction): void;
+  export function before(name: string, fn: TestFunction): void;
+  export function before(fn: TestFunction, name: string): void;
+  export function before(options: HookOptions, fn: TestFunction): void;
+  export function before(fn: TestFunction, options: HookOptions): void;
+  export function before(name: string, options: HookOptions, fn: TestFunction): void;
+  export function before(name: string, fn: TestFunction, options: HookOptions): void;
+  export function before(options: HookOptions, name: string, fn: TestFunction): void;
+  export function before(options: HookOptions, fn: TestFunction, name: string): void;
+  export function before(fn: TestFunction, name: string, options: HookOptions): void;
+  export function before(fn: TestFunction, options: HookOptions, name: string): void;
+
+  export function after(fn: TestFunction): void;
+  export function after(name: string, fn: TestFunction): void;
+  export function after(fn: TestFunction, name: string): void;
+  export function after(options: HookOptions, fn: TestFunction): void;
+  export function after(fn: TestFunction, options: HookOptions): void;
+  export function after(name: string, options: HookOptions, fn: TestFunction): void;
+  export function after(name: string, fn: TestFunction, options: HookOptions): void;
+  export function after(options: HookOptions, name: string, fn: TestFunction): void;
+  export function after(options: HookOptions, fn: TestFunction, name: string): void;
+  export function after(fn: TestFunction, name: string, options: HookOptions): void;
+  export function after(fn: TestFunction, options: HookOptions, name: string): void;
 }
