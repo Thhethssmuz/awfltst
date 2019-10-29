@@ -3,6 +3,8 @@
 const test = require('../..');
 
 test(async function () {
+  this.plan(23);
+
   this.chain().pass();
   this.chain('test').pass();
   this.chain().fail();
