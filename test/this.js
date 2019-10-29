@@ -1070,6 +1070,76 @@ test('this.instance', async function () {
     ''], 'spec output');
 });
 
+test('this.has', async function () {
+  const result = await exec('test/spawn/has.js');
+
+  this.eq(result.stdout, [
+    '',
+    '  1 (anonymous) _ ms',
+    '',
+    '    ✔ has property \'x\'',
+    '    ✔ test',
+    '',
+    '    ✘ has property \'lol\'',
+    '',
+    '      At:       ./test/spawn/has.js (8:8)',
+    '      Operator: has',
+    '      Expected: \'lol\'',
+    '      Actual:   null',
+    '',
+    '    ✘ test',
+    '',
+    '      At:       ./test/spawn/has.js (9:8)',
+    '      Operator: has',
+    '      Expected: \'fun\'',
+    '      Actual:   {}',
+    '',
+    '',
+    '  Failed Tests: There was 1 failed test with 2 failed assertions!',
+    '',
+    '',
+    '  Total:      1 test    4 assertions',
+    '  Passing:    0 tests   2 assertions',
+    '  Failing:    1 test    2 assertions',
+    '  Duration:   _ ms',
+    ''], 'spec output');
+});
+
+test('this.lack', async function () {
+  const result = await exec('test/spawn/lack.js');
+
+  this.eq(result.stdout, [
+    '',
+    '  1 (anonymous) _ ms',
+    '',
+    '    ✔ lack property \'undefined\'',
+    '    ✔ test',
+    '',
+    '    ✘ lack property \'test\'',
+    '',
+    '      At:       ./test/spawn/lack.js (8:8)',
+    '      Operator: lack',
+    '      Expected: \'test\'',
+    '      Actual:   { test: true }',
+    '',
+    '    ✘ test',
+    '',
+    '      At:       ./test/spawn/lack.js (9:8)',
+    '      Operator: lack',
+    '      Expected: \'a\'',
+    '      Actual:   { a: 1, b: 2 }',
+    '',
+    '',
+    '  Failed Tests: There was 1 failed test with 2 failed assertions!',
+    '',
+    '',
+    '  Total:      1 test    4 assertions',
+    '  Passing:    0 tests   2 assertions',
+    '  Failing:    1 test    2 assertions',
+    '  Duration:   _ ms',
+    ''], 'spec output');
+});
+
 test('this.match', async function () {
   const result = await exec('test/spawn/match.js');
 
