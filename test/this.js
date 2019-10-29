@@ -1358,7 +1358,9 @@ test('this.throws', async function () {
     '',
     '      At:       ./test/spawn/throws.js (35:14)',
     '      Operator: throws',
-    '      Expected: [Function]',
+    NODE_MAJOR < 13 ?
+      '      Expected: [Function]' :
+      '      Expected: [Function (anonymous)]',
     '      Actual:   undefined',
     '',
     '    ✔ throws a very special error',
