@@ -16,13 +16,13 @@
     "test": "./bin.js test/*.js"
   },
   "dependencies": {
-    "@types/node": "^12.11.7",
-    "diff": "^4.0.1"
+    "@types/node": "^13.1.8",
+    "diff": "^4.0.2"
   },
   "devDependencies": {
-    "eslint": "^6.6.0",
-    "jsdoc-to-markdown": "^5.0.2",
-    "nyc": "^14.1.1"
+    "eslint": "^6.8.0",
+    "jsdoc-to-markdown": "^5.0.3",
+    "nyc": "^15.0.0"
   },
   "repository": {
     "type": "git",
