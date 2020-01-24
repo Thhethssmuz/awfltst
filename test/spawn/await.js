@@ -11,7 +11,7 @@ test('await', async function () {
     await wait(100);
   });
   this.throws(async function () {
-    await await(100);
+    await wait(100);
     throw new Error('lol');
   });
 });
