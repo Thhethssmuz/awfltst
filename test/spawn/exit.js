@@ -21,3 +21,12 @@ test('uncaught', async function () {
   throws();
   await new Promise(resolve => setTimeout(resolve, 100));
 });
+
+test('nested', async function () {
+  console.log('outer');
+  await this.test('subtest', async function () {
+    console.log('inner');
+    throws();
+    await new Promise(resolve => setTimeout(resolve, 100));
+  });
+});
