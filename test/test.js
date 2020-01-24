@@ -4,6 +4,30 @@ const test = require('..');
 const exec = require('./exec');
 
 
+test('test.await', async function () {
+  const result = await exec('test/spawn/await.js');
+  this.eq(result.stdout, [
+    '',
+    '  1 await _ ms',
+    '',
+    '    ✘ test completed before all asynchronous subcomponents',
+    '',
+    '      At:       ./test/spawn/await.js (6:1)',
+    '      Operator: trailingAsync',
+    '      Expected: 0',
+    '      Actual:   3',
+    '',
+    '',
+    '  Failed Tests: There was 1 failed test with 1 failed assertion!',
+    '',
+    '',
+    '  Total:      1 test    1 assertion',
+    '  Passing:    0 tests   0 assertions',
+    '  Failing:    1 test    1 assertion',
+    '  Duration:   _ ms',
+    ''], 'spec output');
+});
+
 test('test.exit', async function () {
   let result;
 
