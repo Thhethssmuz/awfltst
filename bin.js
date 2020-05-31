@@ -157,4 +157,4 @@ if (!hasOwnProperty(options, 'color')) {
 for (const file of options.files)
   require(resolve(file));
 
-test.run(options).then(process.exit);
+test._run(options).then(process.exit);
