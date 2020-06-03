@@ -93,6 +93,7 @@ Create a new Test.
     * [.skip([name], [options], test)](#test.skip)
     * [.before([options], before)](#test.before)
     * [.after([options], after)](#test.after)
+    * [.extend(proto)](#test.extend) ⇒ [<code>test</code>](#test)
 
 
 * * *
@@ -151,6 +152,22 @@ Create an after hook that will be run after every test.
 
 - [options] [<code>HookOptions</code>](#HookOptions) - Options object.
 - after <code>function</code> - Teardown function.
+
+
+* * *
+
+<a name="test.extend"></a>
+
+#### test.extend(proto) ⇒ [<code>test</code>](#test)
+Extend the test class prototype.
+
+**Kind**: static method of [<code>test</code>](#test)  
+**Returns**: [<code>test</code>](#test) - A new test harness wrapping the new extended Test class.  
+**Params**
+
+- proto <code>Object</code> - Map of functions and/or properties to be added to the new subclassed Test
+class. Note that keys beginning with `_` will throw an error as these names
+are reserved for internal use.
 
 
 * * *
