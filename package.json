@@ -16,7 +16,7 @@
     "test": "./bin.js test/*.js"
   },
   "dependencies": {
-    "@types/node": "^13.1.8",
+    "@types/node": "^14.0.9",
     "diff": "^4.0.2"
   },
   "devDependencies": {
