@@ -30,6 +30,7 @@ declare module "awfltst" {
     stdout: string;
     stderr: string;
 
+    trace(pop?: number): String;
     plan(expected: number, name?: string): Test;
 
     compare(comparator: Function, actual: any, expected: any, options?: ComparatorOptions): Test;
