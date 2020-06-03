@@ -218,11 +218,11 @@ function fore those that favours arrow functions.
 **Kind**: inner namespace  
 
 * [~this](#this) : <code>object</code>
-    * [.trace](#this.trace) ⇒ <code>String</code>
     * [.stdout](#this.stdout) ⇒ <code>String</code>
     * [.stdout](#this.stdout)
     * [.stderr](#this.stderr) ⇒ <code>String</code>
     * [.stderr](#this.stderr)
+    * [.trace](#this.trace) ⇒ <code>String</code>
     * [.plan](#this.plan) ⇒ [<code>Test</code>](#new_Test_new)
     * [.compare](#this.compare) ⇒ [<code>Test</code>](#new_Test_new)
     * [.chain](#this.chain) ⇒ [<code>Test</code>](#new_Test_new)
@@ -253,19 +253,6 @@ function fore those that favours arrow functions.
     * [.test](#this.test)
     * [.throws](#this.throws)
     * [.notThrows](#this.notThrows)
-
-
-* * *
-
-<a name="this.trace"></a>
-
-#### this.trace ⇒ <code>String</code>
-Trace callsite.
-
-**Kind**: static property of [<code>this</code>](#this)  
-**Params**
-
-- [pop] <code>Number</code> - Number of entries in the stack to pop from this call.
 
 
 * * *
@@ -312,6 +299,19 @@ Setter for console output written to stderr during the test.
 **Params**
 
 - value <code>String</code>
+
+
+* * *
+
+<a name="this.trace"></a>
+
+#### this.trace ⇒ <code>String</code>
+Trace callsite.
+
+**Kind**: static property of [<code>this</code>](#this)  
+**Params**
+
+- [pop] <code>Number</code> - Number of entries in the stack to pop from this call.
 
 
 * * *
