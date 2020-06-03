@@ -20,9 +20,8 @@
     "diff": "^4.0.2"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "jsdoc-to-markdown": "^5.0.3",
-    "nyc": "^15.0.0"
+    "jsdoc-to-markdown": "^6.0.1",
+    "nyc": "^15.1.0"
   },
   "repository": {
     "type": "git",
