@@ -218,10 +218,8 @@ function fore those that favours arrow functions.
 **Kind**: inner namespace  
 
 * [~this](#this) : <code>object</code>
-    * [.stdout](#this.stdout) ⇒ <code>String</code>
-    * [.stdout](#this.stdout)
-    * [.stderr](#this.stderr) ⇒ <code>String</code>
-    * [.stderr](#this.stderr)
+    * [.stdout](#this.stdout) : <code>String</code>
+    * [.stderr](#this.stderr) : <code>String</code>
     * [.trace](#this.trace) ⇒ <code>String</code>
     * [.plan](#this.plan) ⇒ [<code>Test</code>](#new_Test_new)
     * [.compare](#this.compare) ⇒ [<code>Test</code>](#new_Test_new)
@@ -259,32 +257,9 @@ function fore those that favours arrow functions.
 
 <a name="this.stdout"></a>
 
-#### this.stdout ⇒ <code>String</code>
-Getter for console output written to stdout during the test up until this
-point.
-
-**Kind**: static property of [<code>this</code>](#this)  
-
-* * *
-
-<a name="this.stdout"></a>
-
-#### this.stdout
-Setter for console output written to stdout during the test.
-
-**Kind**: static property of [<code>this</code>](#this)  
-**Params**
-
-- value <code>String</code>
-
-
-* * *
-
-<a name="this.stderr"></a>
-
-#### this.stderr ⇒ <code>String</code>
-Getter for console output written to stderr during the test up until this
-point.
+#### this.stdout : <code>String</code>
+Getter/Setter for console output written to stdout during the test up until
+this point.
 
 **Kind**: static property of [<code>this</code>](#this)  
 
@@ -292,14 +267,11 @@ point.
 
 <a name="this.stderr"></a>
 
-#### this.stderr
-Setter for console output written to stderr during the test.
+#### this.stderr : <code>String</code>
+Getter/Setter for console output written to stderr during the test up until
+this point.
 
 **Kind**: static property of [<code>this</code>](#this)  
-**Params**
-
-- value <code>String</code>
-
 
 * * *
 
