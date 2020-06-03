@@ -1647,3 +1647,90 @@ test('harness.after', async function () {
       '  Duration:   _ ms',
       ''], 'B');
 });
+
+test('harness.extend', async function () {
+  let result;
+
+  result = await exec('test/spawn/extend.js');
+  this.eq(result.stdout.filter(x => !/^\s+ at /.test(x)), [
+    '',
+    '  1 test _ ms',
+    '',
+    '    ✔ before lack property "lol"',
+    '    ✔ extended before has property "lol"',
+    '    ✔ test lack property "lol"',
+    '',
+    '      1.1 non-extended inline subtest _ ms',
+    '',
+    '        ✔ non-extended inline subtest lack property "lol"',
+    '',
+    '      1.2 non-extended subtest _ ms',
+    '',
+    '        ✔ non-extended subtest lack property "lol"',
+    '',
+    '      1.3 extended subtest _ ms',
+    '',
+    '        ✔ extended subtest has property "lol"',
+    '',
+    '    ✔ after lack property "lol"',
+    '    ✔ extended after has property "lol"',
+    '',
+    '  2 extended _ ms',
+    '',
+    '    ✔ before lack property "lol"',
+    '    ✔ extended before has property "lol"',
+    '    ✔ extended test has property "lol"',
+    '',
+    '      2.1 extended inline subtest _ ms',
+    '',
+    '        ✔ extended inline subtest has property "lol"',
+    '',
+    '      2.2 non-extended subtest _ ms',
+    '',
+    '        ✔ non-extended subtest lack property "lol"',
+    '',
+    '      2.3 extended subtest _ ms',
+    '',
+    '        ✔ extended subtest has property "lol"',
+    '',
+    '    ✔ after lack property "lol"',
+    '    ✔ extended after has property "lol"',
+    '',
+    '',
+    '  All tests passed!',
+    '',
+    '',
+    '  Total:      8 tests   16 assertions',
+    '  Passing:    8 tests   16 assertions',
+    '  Duration:   _ ms',
+    ''], 'scope');
+
+  result = await exec('test/spawn/extend.trace.js');
+  this.eq(result.stdout.filter(x => !/^\s+ at /.test(x)), [
+    '',
+    '  1 test _ ms',
+    '',
+    '    ✘ is lol',
+    '',
+    '      At:       ./test/spawn/extend.trace.js (13:8)',
+    '      Operator: lol',
+    '      Expected: \'lol\'',
+    '      Actual:   \'rofl\'',
+    '',
+    '',
+    '  Failed Tests: There was 1 failed test with 1 failed assertion!',
+    '',
+    '',
+    '  Total:      1 test    1 assertion',
+    '  Passing:    0 tests   0 assertions',
+    '  Failing:    1 test    1 assertion',
+    '  Duration:   _ ms',
+    ''], 'trace');
+
+  result = await exec('test/spawn/extend.protected.js');
+  this.chain('protected')
+    .contains(
+      result.stderr.filter(x => !/^\s+ at /.test(x)),
+      'Error: extend overwrites protected name \'_lol\'', 'throws error')
+    .ne(result.code, 0, 'exits with non-zero exit code');
+});
