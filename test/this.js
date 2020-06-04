@@ -83,6 +83,35 @@ test('this.stderr', async function () {
   this.eq(result.code, 1, 'exit code');
 });
 
+test('this.trace', async function () {
+  const result = await exec('test/spawn/trace.js');
+
+  this.eq(result.stdout, [
+    '',
+    '  1 (anonymous) _ ms',
+    '',
+    '    ./test/spawn/trace.js (7:19)',
+    '    ./test/spawn/trace.js (8:19)',
+    '    ./test/spawn/trace.js (9:28)',
+    '    ./test/spawn/trace.js (12:17)',
+    '    ./test/spawn/trace.js (15:17)',
+    '    ./test/spawn/trace.js (19:6)',
+    '',
+    '  2 eval _ ms',
+    '',
+    '    ./test/spawn/trace.js (24:43)',
+    '    ./test/spawn/trace.js (26:7)',
+    '',
+    '',
+    '  All tests passed!',
+    '',
+    '',
+    '  Total:      2 tests   0 assertions',
+    '  Passing:    2 tests   0 assertions',
+    '  Duration:   _ ms',
+    ''], 'spec output');
+});
+
 test('this.plan', async function () {
   const result = await exec('test/spawn/plan.js');
 
