@@ -7,6 +7,28 @@ const exec = require('./exec');
 test('harness.before', async function () {
   let result;
 
+  result = await exec('test/spawn/before.test.js');
+  this.eq(result.stdout, [
+    '',
+    '  1 (anonymous) _ ms',
+    '',
+    '    ✔ equals \'before\'',
+    '    ✔ equals \'test\'',
+    '',
+    '      1.1 (anonymous) _ ms',
+    '',
+    '        ✔ equals \'inner.before\'',
+    '        ✔ equals \'inner.test\'',
+    '',
+    '',
+    '  All tests passed!',
+    '',
+    '',
+    '  Total:      2 tests   4 assertions',
+    '  Passing:    2 tests   4 assertions',
+    '  Duration:   _ ms',
+    ''], 'test');
+
   result = await exec('test/spawn/before.error.js');
   this.eq(result.stdout.filter(x => !/^\s+ at /.test(x)), [
     '',
@@ -826,6 +848,29 @@ test('harness.before', async function () {
 
 test('harness.after', async function () {
   let result;
+
+  result = await exec('test/spawn/after.test.js');
+  this.eq(result.stdout, [
+    '',
+    '  1 (anonymous) _ ms',
+    '',
+    '    ✔ equals \'test\'',
+    '',
+    '      1.1 (anonymous) _ ms',
+    '',
+    '        ✔ equals \'inner.test\'',
+    '        ✔ equals \'inner.after\'',
+    '',
+    '    ✔ equals \'after\'',
+    '',
+    '',
+    '  All tests passed!',
+    '',
+    '',
+    '  Total:      2 tests   4 assertions',
+    '  Passing:    2 tests   4 assertions',
+    '  Duration:   _ ms',
+    ''], 'test');
 
   result = await exec('test/spawn/after.error.js');
   this.eq(result.stdout.filter(x => !/^\s+ at /.test(x)), [
