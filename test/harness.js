@@ -1705,6 +1705,30 @@ test('harness.extend', async function () {
     '  Duration:   _ ms',
     ''], 'scope');
 
+  result = await exec('test/spawn/extend.getset.js');
+  this.eq(result.stdout.filter(x => !/^\s+ at /.test(x)), [
+    '',
+    '  1 (anonymous) _ ms',
+    '',
+    '    getter called',
+    '    lol lol',
+    '    getter called',
+    '    lol lol',
+    '    setter called',
+    '    getter called',
+    '    rofl rofl',
+    '    getter called',
+    '    rofl rofl',
+    '',
+    '',
+    '  All tests passed!',
+    '',
+    '',
+    '  Total:      1 test    0 assertions',
+    '  Passing:    1 test    0 assertions',
+    '  Duration:   _ ms',
+    ''], 'getter/setter');
+
   result = await exec('test/spawn/extend.trace.js');
   this.eq(result.stdout.filter(x => !/^\s+ at /.test(x)), [
     '',
