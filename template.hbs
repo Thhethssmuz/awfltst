@@ -66,10 +66,14 @@ Options:
   -T, --skip[-test] <test-name> Exclude a single named test from execution.
   -g, --group <group-name>      Exclusively execute a single test group.
   -G, --skip-group <group-name> Exclude a single test group from execution.
+  --depth <depth>               Set max depth for nested properties in output.
   --reporter spec|json          Set output format. Defaults to 'spec'.
   --json                        Reformat previous json output from stdin.
   --[no-]colo[u]r               Force enable/disable coloured output.
   --[no-]capture-console        Force enable/disable console capture.
+  --[no-]summary                Force enable/disable error summary.
+  --[no-]filename               Force enable/disable filename from being added
+                                to test names.
 
 ```
 
