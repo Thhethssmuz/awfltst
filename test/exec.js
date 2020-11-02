@@ -27,8 +27,10 @@ const exec = function (...args) {
 
 module.exports = async function (...args) {
   const result = await exec('--reporter=spec', ...args);
-  result.stdout = result.stdout.map(x => x.replace(/\d+ (ms|s|m|h)$/, '_ ms'));
-  result.stderr = result.stderr.map(x => x.replace(/\d+ (ms|s|m|h)$/, '_ ms'));
+  result.stdout = result.stdout
+    .map(x => x.replace(/\b\d+ (ms|s|m|h)\b/, '_ ms'));
+  result.stderr = result.stderr
+    .map(x => x.replace(/\b\d+ (ms|s|m|h)\b/, '_ ms'));
 
   /* eslint-disable no-regex-spaces */
   const summaryParts = [
