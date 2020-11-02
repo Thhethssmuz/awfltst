@@ -9,7 +9,7 @@ const test = require('../..').extend({
   set lol(value) {
     console.log('setter called');
     _hidden = value;
-  },
+  }
 });
 
 test.before(async function () {

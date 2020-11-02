@@ -1,4 +1,5 @@
 'use strict';
+/* eslint-disable no-extra-parens */
 
 const test = require('../..');
 const {log} = console;
