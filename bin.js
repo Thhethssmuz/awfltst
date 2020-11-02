@@ -27,6 +27,7 @@ Options:
   --json                        Reformat previous json output from stdin.
   --[no-]colo[u]r               Force enable/disable coloured output.
   --[no-]capture-console        Force enable/disable console capture.
+  --[no-]summary                Force enable/disable error summary.
   --[no-]filename               Force enable/disable filename from being added
                                 to test names.
 `;
@@ -104,7 +105,6 @@ while (argv.length) {
     case '--colour':
       options.color = true;
       break;
-
     case '--no-color':
     case '--no-colour':
       options.color = false;
@@ -115,6 +115,13 @@ while (argv.length) {
       break;
     case '--no-capture-console':
       options.console = false;
+      break;
+
+    case '--summary':
+      options.summary = true;
+      break;
+    case '--no-summary':
+      options.summary = false;
       break;
 
     case '--filename':
