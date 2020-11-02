@@ -418,7 +418,7 @@ test('this.not', async function () {
 });
 
 test('this.eq', async function () {
-  const result  = await exec('test/spawn/eq.js');
+  const result  = await exec('--depth=10', 'test/spawn/eq.js');
 
   this.eq(result.stdout, NODE_MAJOR < 11 ? [
     '',

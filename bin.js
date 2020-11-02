@@ -22,6 +22,7 @@ Options:
   -T, --skip[-test] <test-name> Exclude a single named test from execution.
   -g, --group <group-name>      Exclusively execute a single test group.
   -G, --skip-group <group-name> Exclude a single test group from execution.
+  --depth <depth>               Set max depth for nested properties in output.
   --reporter spec|json          Set output format. Defaults to 'spec'.
   --json                        Reformat previous json output from stdin.
   --[no-]colo[u]r               Force enable/disable coloured output.
@@ -74,6 +75,14 @@ while (argv.length) {
       options.skipGroup = options.skipGroup || [];
       options.skipGroup.push(argv.shift());
       pushback.pop();
+      break;
+
+    case '--depth':
+      if (!/^\d+$/.test(argv[0])) {
+        error(`awfltst: invalid depth \`${argv[0]}'`);
+        return process.exit(1);
+      }
+      options.depth = parseInt(argv.shift(), 10);
       break;
 
     case '--reporter':
