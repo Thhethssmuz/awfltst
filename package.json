@@ -1,7 +1,7 @@
 {
   "name": "awfltst",
   "author": "Svein Inge Albrigtsen <thhethssmuz@gmail.com>",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "async test library",
   "main": "lib",
   "types": "index.d.ts",
