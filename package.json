@@ -3,7 +3,7 @@
   "author": "Svein Inge Albrigtsen <thhethssmuz@gmail.com>",
   "version": "0.6.0",
   "description": "async test library",
-  "main": "lib",
+  "main": "lib/index.js",
   "types": "index.d.ts",
   "bin": {
     "awfltst": "bin.js"
