@@ -1,5 +1,5 @@
 'use strict';
-
+/* eslint-disable no-empty-function, prefer-promise-reject-errors */
 const test = require('../..');
 
 test(async function () {

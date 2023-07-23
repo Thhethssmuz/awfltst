@@ -1,5 +1,5 @@
 'use strict';
-
+/* eslint-disable no-empty-function */
 const test = require('../..');
 
 test('test 1 -', async function () {});

@@ -24,13 +24,13 @@ const expected = {
   }
 };
 
-const actual = Object.assign({}, expected, {
+const actual = {...expected,
   boolean: true,
   object : {
     null  : Object.create(null),
     nested: {a: {b: {c: 'not c'}}}
   }
-});
+};
 
 test('diffable', async function () {
   this.eq(actual, expected);

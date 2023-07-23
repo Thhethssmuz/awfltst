@@ -1,5 +1,5 @@
 'use strict';
-
+/* eslint-disable no-console, no-empty-function*/
 const test = require('../..');
 
 test.before(() => console.log('Before all'));

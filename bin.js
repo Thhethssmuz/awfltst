@@ -3,7 +3,7 @@
 
 const test = require('.');
 const json = require('./lib/json');
-const {resolve} = require('path');
+const {resolve} = require('node:path');
 const {log, error} = console;
 
 const doc = `Usage:

@@ -1,5 +1,5 @@
 'use strict';
-
+/* eslint-disable no-console */
 const test = require('../..');
 
 const exit = (code) => setTimeout(() => process.exit(code), 0);

@@ -4,7 +4,6 @@ const test = require('..');
 const exec = require('./exec');
 const {version} = require('../package');
 
-
 test('bin', async function () {
   const result = await exec();
   this.chain('missing file-path')
@@ -33,7 +32,7 @@ test('bin --reporter=invalid', async function () {
   const result = await exec('--reporter=invalid');
   this.chain('invalid reporter')
     .eq(result.stdout, [], 'stdout')
-    .eq(result.stderr, ['awfltst: invalid reporter `invalid\''], 'stderr')
+    .eq(result.stderr, ["awfltst: invalid reporter `invalid'"], 'stderr')
     .eq(result.code, 1, 'exit code');
 });
 
@@ -41,7 +40,7 @@ test('bin -', async function () {
   const result = await exec('-');
   this.chain('invalid option')
     .eq(result.stdout, [], 'stdout')
-    .eq(result.stderr, ['awfltst: invalid option `-\''], 'stderr')
+    .eq(result.stderr, ["awfltst: invalid option `-'"], 'stderr')
     .eq(result.code, 1, 'exit code');
 });
 
@@ -49,8 +48,7 @@ test('bin --does-not-exist', async function () {
   const result = await exec('--does-not-exist');
   this.chain('invalid option')
     .eq(result.stdout, [], 'stdout')
-    .eq(result.stderr,
-        ['awfltst: invalid option `--does-not-exist\''], 'stderr')
+    .eq(result.stderr, ["awfltst: invalid option `--does-not-exist'"], 'stderr')
     .eq(result.code, 1, 'exit code');
 });
 
@@ -65,13 +63,19 @@ test('bin -- --does-not-exist', async function () {
 test('bin --color', async function () {
   const result = await exec('--color', 'test/spawn/test.js');
   // eslint-disable-next-line no-control-regex
-  this.match(result.stdout.join('\n'), /\x1b\[\d+(;\d+)?m/,
-             'should contain ANSI escape codes');
+  this.match(
+    result.stdout.join('\n'),
+    /\x1b\[\d+(;\d+)?m/,
+    'should contain ANSI escape codes'
+  );
 });
 
 test('bin --no-color', async function () {
   const result = await exec('--no-color', 'test/spawn/test.js');
   // eslint-disable-next-line no-control-regex
-  this.notMatch(result.stdout.join('\n'), /\x1b\[\d+(;\d+)?m/,
-                'should not contain ANSI escape codes');
+  this.notMatch(
+    result.stdout.join('\n'),
+    /\x1b\[\d+(;\d+)?m/,
+    'should not contain ANSI escape codes'
+  );
 });

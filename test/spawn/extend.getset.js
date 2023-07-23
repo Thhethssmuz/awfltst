@@ -1,5 +1,5 @@
 'use strict';
-
+/* eslint-disable no-console */
 let _hidden = 'lol';
 const test = require('../..').extend({
   get lol() {
